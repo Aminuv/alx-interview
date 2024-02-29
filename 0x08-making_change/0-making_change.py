@@ -1,19 +1,28 @@
 #!/usr/bin/python3
-"""
-Make a file that change the module
-"""
+"""Making changes module"""
 
 
 def makeChange(coins, total):
-    if total == 0:
-        return 0
-    amounts = [float("inf")] * (total + 1)
-    amounts[0] = 0
+    """
+    Determines the fewest number of coins needed to meet a
+    given amount total by given a pile of coins of
+    different values
+    """
 
-    for coin in coins:
-        for i in range(coin, total + 1):
-            amounts[i] = min(amounts[i], amounts[i - coin] + 1)
-    if amounts[total] != float("inf"):
-        return amounts[total]
-    else:
-        return -1
+    if total <= 0:
+        return 0
+
+    coins_count = 0
+    reste = total
+    idx = 0
+    sorted_list_coins = sorted(coins, reverse=True)
+    n = len(coins)
+    while reste > 0:
+        if idx >= n:
+            return -1
+        if reste - sorted_list_coins[idx] >= 0:
+            reste -= sorted_list_coins[idx]
+            coins_count += 1
+        else:
+            idx += 1
+    return coins_count
