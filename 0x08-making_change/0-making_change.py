@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""Making changes module"""
+"""
+Make a file that change the module
+"""
 
 
 def makeChange(coins, total):
     """
-    Determines the fewest number of coins needed to meet a
-    given amount total by given a pile of coins of
-    different values
+    the determines the fewest
     """
 
     if total <= 0:
