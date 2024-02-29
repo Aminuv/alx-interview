@@ -1,19 +1,18 @@
 #!/usr/bin/python3
-"""
-Make a file that change the module
+"""sting
 """
 
 
-def makeChange(coins, total):
-    if total == 0:
+def makeChange(coins, amount):
+    if amount == 0:
         return 0
-    amounts = [float("inf")] * (total + 1)
+    amounts = [float("inf")] * (amount + 1)
     amounts[0] = 0
 
     for coin in coins:
-        for i in range(coin, total + 1):
+        for i in range(coin, amount + 1):
             amounts[i] = min(amounts[i], amounts[i - coin] + 1)
-    if amounts[total] != float("inf"):
-        return amounts[total]
+    if amounts[amount] != float("inf"):
+        return amounts[amount]
     else:
         return -1
