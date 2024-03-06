@@ -28,4 +28,3 @@ def island_perimeter(grid):
                 perimeter += cell_nbr_water(grid, row, col)
 
     return perimeter
-
